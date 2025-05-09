@@ -113,7 +113,7 @@ export default function ComponentsPage() {
           <h2 className="text-xl font-semibold text-white">Your Components</h2>
 
           {/* Contact Button */}
-          <Button
+          {/* <Button
             onClick={handleContactClick}
             variant="ghost"
             size="icon"
@@ -121,10 +121,10 @@ export default function ComponentsPage() {
             title="Contact Support"
           >
             <Mail className="h-5 w-5" />
-          </Button>
+          </Button> */}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -141,7 +141,7 @@ export default function ComponentsPage() {
             <li className="font-semibold mt-2">🥉 3rd Prize: Free single Udemy course</li>
           </ul>
 
-          {/* Add refreshment hub information */}
+          
           <div className="mt-4 pt-4 border-t border-white/10">
             <div className="flex items-center mb-2">
               <Coffee className="w-5 h-5 text-green-300 mr-2" />
@@ -181,7 +181,7 @@ export default function ComponentsPage() {
               </p>
             </motion.div>
           )}
-        </motion.div>
+        </motion.div> */}
 
         <div className="space-y-4 mb-6">
           {components.length > 0 ? (
@@ -219,7 +219,7 @@ export default function ComponentsPage() {
           ) : (
             <div className="p-4 rounded-lg bg-white/5 border border-white/10 text-center">
               <p className="text-purple-200">You haven't collected any components yet.</p>
-              <p className="text-sm text-purple-300 mt-2">Scan QR codes to collect IoT components!</p>
+              <p className="text-sm text-purple-300 mt-2">Scan QR codes to collect components!</p>
             </div>
           )}
         </div>
@@ -269,7 +269,7 @@ export default function ComponentsPage() {
           </Button>
 
           {/* Replace this button */}
-          <Button
+          {/* <Button
             onClick={() =>
               alert(
                 "The Refreshment Hub is located at the IOT Department HOD Room. Show your progress to claim your drink!",
@@ -280,7 +280,7 @@ export default function ComponentsPage() {
           >
             <Coffee className="mr-2 h-4 w-4" />
             Refreshment Hub
-          </Button>
+          </Button> */}
         </div>
       </motion.div>
     </main>

@@ -137,7 +137,7 @@ export default function DashboardPage() {
         className="w-full max-w-md p-8 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.37)] text-center relative"
       >
         {/* Contact Button */}
-        <Button
+        {/* <Button
           onClick={handleContactClick}
           variant="ghost"
           size="icon"
@@ -145,7 +145,7 @@ export default function DashboardPage() {
           title="Contact Support"
         >
           <Mail className="h-5 w-5" />
-        </Button>
+        </Button> */}
 
         <motion.h1
           initial={{ opacity: 0 }}
@@ -166,7 +166,7 @@ export default function DashboardPage() {
           </motion.div>
         )}
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -183,7 +183,7 @@ export default function DashboardPage() {
             <li className="font-semibold mt-2">🥉 3rd Prize: Free single Udemy course</li>
           </ul>
 
-          {/* Add refreshment hub information */}
+          
           <div className="mt-4 pt-4 border-t border-white/10">
             <div className="flex items-center mb-2">
               <Coffee className="w-5 h-5 text-green-300 mr-2" />
@@ -223,7 +223,7 @@ export default function DashboardPage() {
               </p>
             </motion.div>
           )}
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -361,7 +361,7 @@ export default function DashboardPage() {
           </Button>
 
           {/* Replace this button */}
-          <Button
+          {/* <Button
             onClick={() =>
               alert(
                 "The Refreshment Hub is located at the IOT Department HOD Room. Show your progress to claim your drink!",
@@ -372,7 +372,7 @@ export default function DashboardPage() {
           >
             <Coffee className="mr-2 h-4 w-4" />
             Refreshment Hub
-          </Button>
+          </Button> */}
         </motion.div>
       </motion.div>
     </main>

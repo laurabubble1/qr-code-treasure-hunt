@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     // If verification is disabled, automatically approve
     if (!verificationEnabled) {
       // Set cookie with registration ID
-      cookies().set("registration_id", registrationId.trim().toUpperCase(), {
+      (await cookies()).set("registration_id", registrationId.trim().toUpperCase(), {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 60 * 60 * 24 * 7, // 1 week
@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     }
 
     // Set cookie with registration ID
-    cookies().set("registration_id", normalizedId, {
+    (await cookies()).set("registration_id", normalizedId, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 60 * 60 * 24 * 7, // 1 week

@@ -82,7 +82,7 @@ export default function VerifyPage() {
         </Button>
 
         {/* Contact Button */}
-        <Button
+        {/* <Button
           onClick={handleContactClick}
           variant="ghost"
           size="icon"
@@ -90,7 +90,7 @@ export default function VerifyPage() {
           title="Contact Support"
         >
           <Mail className="h-5 w-5" />
-        </Button>
+        </Button> */}
 
         <h1 className="text-2xl font-bold mb-6 text-center text-white mt-6">Verify Registration</h1>
 

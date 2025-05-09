@@ -56,7 +56,7 @@ export async function GET(request: Request) {
     }
 
     // Get registration ID from cookie
-    const registrationIdCookie = cookies().get("registration_id")
+    const registrationIdCookie = (await cookies()).get("registration_id")
 
     // If no cookie, user needs to register
     if (!registrationIdCookie) {
@@ -228,7 +228,7 @@ export async function GET(request: Request) {
 // Helper function to handle progress check
 async function handleProgressCheck() {
   // Get registration ID from cookie
-  const registrationIdCookie = cookies().get("registration_id")
+  const registrationIdCookie = (await cookies()).get("registration_id")
 
   // If no cookie, user needs to register
   if (!registrationIdCookie) {

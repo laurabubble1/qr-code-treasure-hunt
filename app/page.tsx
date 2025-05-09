@@ -209,7 +209,7 @@ export default function Home() {
         className="w-full max-w-md p-8 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.37)] text-center relative"
       >
         {/* Contact Button */}
-        <Button
+        {/* <Button
           onClick={handleContactClick}
           variant="ghost"
           size="icon"
@@ -217,7 +217,7 @@ export default function Home() {
           title="Contact Support"
         >
           <Mail className="h-5 w-5" />
-        </Button>
+        </Button> */}
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -248,7 +248,7 @@ export default function Home() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="text-3xl font-bold mb-2 text-white"
         >
-          Campus Treasure Hunt
+          Télécom Treasure Hunt
         </motion.h1>
 
         <motion.p
@@ -257,10 +257,10 @@ export default function Home() {
           transition={{ delay: 0.7, duration: 0.5 }}
           className="text-purple-200 mb-6"
         >
-          Join the IoT branch scavenger hunt and win amazing prizes!
+          Join the Diversity Week scavenger hunt and win amazing prizes!
         </motion.p>
 
-        {!verificationEnabled && (
+        {/* {!verificationEnabled && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -270,10 +270,10 @@ export default function Home() {
             <AlertCircle className="h-4 w-4 mr-2 flex-shrink-0" />
             <span>Open access mode is enabled. All users can participate without payment verification.</span>
           </motion.div>
-        )}
+        )} */}
 
         {/* Update the grand prize section to include refreshment hub information */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
@@ -290,7 +290,7 @@ export default function Home() {
             <li className="font-semibold mt-2">🥉 3rd Prize: Free single Udemy course</li>
           </ul>
 
-          {/* Add refreshment hub information */}
+          
           <div className="mt-4 pt-4 border-t border-white/10">
             <div className="flex items-center mb-2">
               <Coffee className="w-5 h-5 text-green-300 mr-2" />
@@ -330,7 +330,7 @@ export default function Home() {
               </p>
             </motion.div>
           )}
-        </motion.div>
+        </motion.div> */}
 
         {error && (
           <motion.div
@@ -410,9 +410,9 @@ export default function Home() {
                   </p>
                 )}
 
-                <p className="text-xs text-purple-200/70 text-left mt-1">
+                {/* <p className="text-xs text-purple-200/70 text-left mt-1">
                   Only IoT Branch students can participate. Sorry bro if you aren't!
-                </p>
+                </p> */}
               </div>
 
               <Button

@@ -54,7 +54,7 @@ export default function NavLinks() {
                   My Components
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/contact-us"
                   className="block p-2 hover:bg-white/10 rounded-md transition-colors"
@@ -98,7 +98,7 @@ export default function NavLinks() {
                 >
                   Shipping & Delivery
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>

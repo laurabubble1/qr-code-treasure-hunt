@@ -89,7 +89,7 @@ export async function POST(request: Request) {
       }
 
       // Set cookie with registration ID
-      cookies().set("registration_id", verificationResult.userData.registrationId, {
+      (await cookies()).set("registration_id", verificationResult.userData.registrationId, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 60 * 60 * 24 * 7, // 1 week
