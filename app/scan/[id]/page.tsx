@@ -272,7 +272,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
             </motion.div>
           )}
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -289,7 +289,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
               <li className="font-semibold mt-2">🥉 3rd Prize: Free single Udemy course</li>
             </ul>
 
-            {/* Add refreshment hub information */}
+             Add refreshment hub information 
             <div className="mt-4 pt-4 border-t border-white/10">
               <div className="flex items-center mb-2">
                 <Coffee className="w-5 h-5 text-green-300 mr-2" />
@@ -330,7 +330,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
                 </p>
               </motion.div>
             )}
-          </motion.div>
+          </motion.div> */}
 
           {error && (
             <motion.div
@@ -395,7 +395,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
         className="w-full max-w-md p-8 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.37)] text-center relative"
       >
         {/* Contact Button */}
-        <Button
+        {/* <Button
           onClick={handleContactClick}
           variant="ghost"
           size="icon"
@@ -403,7 +403,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           title="Contact Support"
         >
           <Mail className="h-5 w-5" />
-        </Button>
+        </Button> */}
 
         {/* Redirect Timer (only shown when collecting 5th component) */}
         {redirectTimer && (
@@ -475,7 +475,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
         </motion.div>
 
         {/* Add the refreshment hub notification */}
-        {showRefreshmentNotification && (
+        {/* {showRefreshmentNotification && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -503,9 +503,9 @@ export default function ScanPage({ params }: { params: { id: string } }) {
               Refreshment Hub Location
             </Button>
           </motion.div>
-        )}
+        )} */}
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
@@ -520,10 +520,10 @@ export default function ScanPage({ params }: { params: { id: string } }) {
             <li>• PLUS: Any Udemy course of your choice</li>
             <li className="font-semibold mt-2">🥈 2nd Prize: Free Netflix Premium</li>
             <li className="font-semibold mt-2">🥉 3rd Prize: Free single Udemy course</li>
-          </ul>
+          </ul> */}
 
           {/* Add refreshment hub information */}
-          <div className="mt-4 pt-4 border-t border-white/10">
+          {/* <div className="mt-4 pt-4 border-t border-white/10">
             <div className="flex items-center mb-2">
               <Coffee className="w-5 h-5 text-green-300 mr-2" />
               <h4 className="text-sm font-semibold text-white">Refreshment Hub</h4>
@@ -562,7 +562,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
               </p>
             </motion.div>
           )}
-        </motion.div>
+        </motion.div> */}
 
         {qrCode && pointsToComponent && (
           <motion.div
@@ -637,7 +637,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           </Button>
 
           {/* Replace this button */}
-          <Button
+          {/* <Button
             onClick={() =>
               alert(
                 "The Refreshment Hub is located at the IOT Department HOD Room. Show your progress to claim your drink!",
@@ -648,7 +648,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           >
             <Coffee className="mr-2 h-4 w-4" />
             Refreshment Hub
-          </Button>
+          </Button> */}
         </div>
       </motion.div>
     </main>
