@@ -490,3 +490,20 @@ export async function getVerificationSettings(): Promise<{ enabled: boolean }> {
   }
 }
 
+export async function getAllUsers() {
+  const { db } = await connectToDatabase();
+
+  // Fetch all users from the users collection
+  const users = await db.collection("users").find({}).toArray();
+
+  // Map users to a consistent format
+  return users.map((user) => ({
+    registrationId: user.registrationId || "N/A",
+    fullName: user.fullName || "N/A",
+    email: user.email || "N/A",
+    phone: user.phone || "N/A",
+    verified: user.verified || false,
+    timestamp: user.timestamp || new Date(),
+  }));
+}
+

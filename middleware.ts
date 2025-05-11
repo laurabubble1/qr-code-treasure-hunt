@@ -10,10 +10,39 @@ export async function middleware(request: NextRequest) {
     ? process.env.NEXT_PUBLIC_BASE_URL || "https://qr-code-hunt.rezel.net"
     : request.nextUrl.origin;
 
+    if (request.nextUrl.pathname.startsWith("/admin")) {
+      const authHeader = request.headers.get("authorization");
+  
+      // Check for Basic Auth header
+      if (!authHeader || !authHeader.startsWith("Basic ")) {
+        return new NextResponse("Unauthorized", {
+          status: 401,
+          headers: {
+            "WWW-Authenticate": 'Basic realm="Admin Area"',
+          },
+        });
+      }
+  
+      // Decode the Base64 encoded credentials
+      const base64Credentials = authHeader.split(" ")[1];
+      const [username, password] = atob(base64Credentials).split(":");
+  
+      // Validate credentials
+      const validUsername = process.env.ADMIN_USERNAME || "admin";
+      const validPassword = process.env.ADMIN_PASSWORD || "yourpassword"; // Replace with your desired password
+  
+      if (username !== validUsername || password !== validPassword) {
+        return new NextResponse("Unauthorized", {
+          status: 401,
+          headers: {
+            "WWW-Authenticate": 'Basic realm="Admin Area"',
+          },
+        });
+      }
+    }
   // Skip middleware for API routes and admin routes
   if (
     request.nextUrl.pathname.startsWith("/api") ||
-    request.nextUrl.pathname.startsWith("/admin") ||
     request.nextUrl.pathname === "/" ||
     request.nextUrl.pathname === "/verify" ||
     request.nextUrl.pathname.startsWith("/privacy-policy") ||

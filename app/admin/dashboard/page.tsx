@@ -23,7 +23,7 @@ export default function AdminDashboard() {
       setIsLoading(true)
       setError(null)
 
-      const response = await fetch("/api/admin/payments")
+      const response = await fetch("/api/admin/users")
       const result = await response.json()
 
       if (!response.ok) {
@@ -199,15 +199,17 @@ ${
             </div>
           ) : (
             <Tabs defaultValue="users">
+              
               <TabsList className="w-full bg-white/10">
                 <TabsTrigger value="users" className="flex-1">
                   <Users className="h-4 w-4 mr-2" />
-                  Verified Users ({data.verifiedUsers?.length || 0})
+                  Users ({data.users?.length || 0})
                 </TabsTrigger>
                 <TabsTrigger value="payments" className="flex-1">
                   <CreditCard className="h-4 w-4 mr-2" />
                   Payments ({data.payments?.length || 0})
                 </TabsTrigger>
+
               </TabsList>
 
               <TabsContent value="users" className="mt-4">
@@ -234,8 +236,8 @@ ${
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-white/5">
-                        {data.verifiedUsers?.length > 0 ? (
-                          data.verifiedUsers.map((user: any, index: number) => (
+                        {data.users?.length > 0 ? (
+                          data.users.map((user: any, index: number) => (
                             <tr key={index} className="bg-white/0 hover:bg-white/5">
                               <td className="px-4 py-3 whitespace-nowrap text-purple-100">{user.registrationId}</td>
                               <td className="px-4 py-3 whitespace-nowrap text-purple-100">{user.name || "-"}</td>
