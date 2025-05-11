@@ -234,7 +234,7 @@ export default function ComponentsPage() {
           >
             <h3 className="text-md font-semibold text-white mb-3">Still Missing:</h3>
             <div className="grid grid-cols-5 gap-2">
-              {["led", "resistor", "breadboard", "jumper-wires", "battery"].map((componentId) => {
+              {["hedy-lamarr","emilie-du-chatelet","kimberly-bryant","jess-wade","4as"].map((componentId) => {
           const collected = collectedComponents.includes(componentId)
           return (
             <div

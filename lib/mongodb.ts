@@ -260,13 +260,13 @@ export async function getFirstClue() {
 
   // Get the first QR code (LED)
   const qrCode = await db.collection("qrcodes").findOne({
-    componentId: "led",
+    componentId: "hedy-lamarr",
   })
 
   if (!qrCode) {
     // If not found, initialize QR codes and try again
     await getQRCodes()
-    return db.collection("qrcodes").findOne({ componentId: "led" })
+    return db.collection("qrcodes").findOne({ componentId: "hedy-lamarr" })
   }
 
   return qrCode
