@@ -3,6 +3,13 @@ import type { NextRequest } from "next/server"
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
+  const isProd = process.env.NODE_ENV === "production";
+
+  // Base URL: Use environment variable in production, fallback to `request.nextUrl.origin` in development
+  const baseUrl = isProd
+    ? process.env.NEXT_PUBLIC_BASE_URL || "https://qr-code-hunt.rezel.net"
+    : request.nextUrl.origin;
+
   // Skip middleware for API routes and admin routes
   if (
     request.nextUrl.pathname.startsWith("/api") ||
@@ -15,37 +22,37 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith("/shipping-delivery") ||
     request.nextUrl.pathname.startsWith("/contact-us")
   ) {
-    return NextResponse.next()
+    return NextResponse.next();
   }
 
   // Check if verification is enabled via API
-  const verificationStatusResponse = await fetch(`${request.nextUrl.origin}/api/verification-status`)
-  const { verificationEnabled = true } = await verificationStatusResponse.json()
+  const verificationStatusResponse = await fetch(`${baseUrl}/api/verification-status`);
+  const { verificationEnabled = true } = await verificationStatusResponse.json();
 
   // If verification is disabled, allow access
   if (!verificationEnabled) {
-    return NextResponse.next()
+    return NextResponse.next();
   }
 
   // Get registration ID from cookie
-  const registrationId = request.cookies.get("registration_id")?.value
+  const registrationId = request.cookies.get("registration_id")?.value;
 
   // If no registration ID, redirect to home
   if (!registrationId) {
-    return NextResponse.redirect(new URL("/?error=not_verified", request.url))
+    return NextResponse.redirect(new URL("/?error=not_verified", baseUrl));
   }
 
   // Check if user is verified via API
-  const verifyResponse = await fetch(`${request.nextUrl.origin}/api/verify?registrationId=${registrationId}`)
-  const verifyData = await verifyResponse.json()
+  const verifyResponse = await fetch(`${baseUrl}/api/verify?registrationId=${registrationId}`);
+  const verifyData = await verifyResponse.json();
 
   // If not verified, redirect to home
   if (!verifyData.verified) {
-    return NextResponse.redirect(new URL("/?error=not_verified", request.url))
+    return NextResponse.redirect(new URL("/?error=not_verified", baseUrl));
   }
 
   // Continue to protected route
-  return NextResponse.next()
+  return NextResponse.next();
 }
 
 export const config = {
@@ -59,5 +66,4 @@ export const config = {
      */
     "/((?!_next/static|_next/image|favicon.ico|public).*)",
   ],
-}
-
+};
