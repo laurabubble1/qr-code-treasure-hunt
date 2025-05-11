@@ -1,7 +1,7 @@
 import QRCodePageClient from "./QRCodePageClient" // Ensure this file exists in the same directory or adjust the path
 
-export default function QRCodePage({ params }: { params: { code: string } }) {
-  const { code } = params // Access `params.code` in the server component
+export default async function QRCodePage({ params }: { params: { code: string } }) {
+  const { code } =  await params // Access `params.code` in the server component
   return <QRCodePageClient code={code} />
 }
 

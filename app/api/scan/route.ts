@@ -38,7 +38,7 @@ export async function GET(request: Request) {
     let component = null
 
     // First check if this is one of our fixed QR codes
-    if (QR_CODE_MAPPINGS[effectiveQrId]) {
+    if (QR_CODE_MAPPINGS[effectiveQrId as keyof typeof QR_CODE_MAPPINGS]) {
       component = await getComponentByQRCodeId(effectiveQrId)
     } else {
       // If it's not one of our fixed QR codes, check if it exists in the database

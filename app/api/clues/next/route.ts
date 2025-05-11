@@ -27,7 +27,7 @@ export async function GET(request: Request) {
     const collectedComponents = user.scannedComponents || []
 
     // Find the first component that hasn't been collected
-    const componentIds = ["led", "resistor", "breadboard", "jumper-wires", "battery"]
+    const componentIds = ["hedy-lamarr", "emilie-du-chatelet", "kimberly-bryant", "jess-wade", "4as"];
     const missingComponents = componentIds.filter((id) => !collectedComponents.includes(id))
 
     if (missingComponents.length === 0) {

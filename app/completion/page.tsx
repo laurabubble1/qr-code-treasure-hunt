@@ -92,20 +92,20 @@ export default function CompletionPage() {
   // Get the emoji for each component
   const getComponentEmoji = (id: string) => {
     switch (id) {
-      case "led":
-        return "💡" // Light bulb
-      case "resistor":
-        return "🧲" // Magnet (representing resistor)
-      case "breadboard":
-        return "🧩" // Puzzle piece (representing breadboard)
-      case "jumper-wires":
-        return "🔌" // Electric plug (representing jumper wires)
-      case "battery":
-        return "🔋" // Battery
+      case "hedy-lamarr":
+        return "🏛️"; // Hedy Lamarr
+      case "emilie-du-chatelet":
+        return "📚"; // Émilie du Châtelet
+      case "kimberly-bryant":
+        return "🔧"; // Kimberly Bryant
+      case "jess-wade":
+        return "🥗"; // Jess Wade
+      case "4as":
+        return "☕"; // The 4 A's
       default:
-        return "🔍" // Magnifying glass (default)
+        return "❓"; // Default
     }
-  }
+  };
 
   const handleContactClick = () => {
     window.location.href =
@@ -136,7 +136,7 @@ export default function CompletionPage() {
         className="w-full max-w-md p-8 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.37)] text-center relative"
       >
         {/* Contact Button */}
-        <Button
+        {/* <Button
           onClick={handleContactClick}
           variant="ghost"
           size="icon"
@@ -144,7 +144,7 @@ export default function CompletionPage() {
           title="Contact Support"
         >
           <Mail className="h-5 w-5" />
-        </Button>
+        </Button> */}
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -186,11 +186,11 @@ export default function CompletionPage() {
         >
           <p className="text-purple-100">You've successfully completed the Digital Treasure Hunt!</p>
 
-          <div className="p-4 rounded-lg bg-white/5 border border-white/10 text-purple-100">
+          {/* <div className="p-4 rounded-lg bg-white/5 border border-white/10 text-purple-100">
             <p className="font-semibold text-lg text-white mb-2">{getPrizeText()}</p>
-          </div>
+          </div> */}
 
-          <div className="p-4 rounded-lg bg-gradient-to-r from-red-500/20 to-purple-500/20 border border-purple-400/30">
+          {/* <div className="p-4 rounded-lg bg-gradient-to-r from-red-500/20 to-purple-500/20 border border-purple-400/30">
             <h3 className="text-lg font-bold text-white mb-2">Grand Prizes</h3>
             <ul className="text-sm text-left text-purple-100 space-y-1 mb-3">
               <li className="font-semibold">🥇 1st Prize: Netflix Premium + Udemy Course</li>
@@ -202,7 +202,7 @@ export default function CompletionPage() {
               <li className="font-semibold mt-2">🥉 3rd Prize: Free single Udemy course</li>
             </ul>
 
-            {/* Add refreshment hub information */}
+            
             <div className="mt-4 pt-4 border-t border-white/10">
               <div className="flex items-center mb-2">
                 <Coffee className="w-5 h-5 text-green-300 mr-2" />
@@ -211,9 +211,9 @@ export default function CompletionPage() {
               <p className="text-xs text-purple-100">
                 Don't forget to visit the Refreshment Hub at the College Canteen to claim your free drink!
               </p>
-            </div>
+            </div> */}
 
-            <Button
+            {/* <Button
               onClick={() => setShowPrizeDetails(!showPrizeDetails)}
               variant="outline"
               size="sm"
@@ -241,7 +241,7 @@ export default function CompletionPage() {
                 </p>
               </motion.div>
             )}
-          </div>
+          </div> */}
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -271,14 +271,12 @@ export default function CompletionPage() {
             transition={{ delay: 1.2, duration: 0.5 }}
             className="p-4 rounded-lg bg-white/5 border border-white/10"
           >
-            <h3 className="text-lg font-semibold text-white mb-2">Build Your Own Project!</h3>
+            {/* <h3 className="text-lg font-semibold text-white mb-2">Build Your Own Project!</h3> */}
             <p className="text-sm text-purple-100 mb-3">
-              Congratulations! You've collected all components: LED, Resistor, Breadboard, Jumper Wires, and Battery.
-              With these, you can make an LED glow using the battery.
+              Congratulations on collecting all the components! 
             </p>
             <p className="text-sm text-purple-100">
-              Connect the LED to the battery with the resistor in series, using jumper wires and the breadboard to hold
-              it all together.
+              Now you know a little more about STEM personalities and their contributions to technology.
             </p>
           </motion.div>
         </motion.div>
@@ -289,7 +287,7 @@ export default function CompletionPage() {
           transition={{ delay: 1.3, duration: 0.5 }}
           className="space-y-4"
         >
-          <Button
+          {/* <Button
             onClick={() => {
               // Open WhatsApp with pre-filled message
               window.open(
@@ -311,7 +309,7 @@ export default function CompletionPage() {
             Return Home
           </Button>
 
-          {/* Add Refreshment Hub button */}
+          
           <Button
             onClick={() =>
               alert("The Refreshment Hub is located at the College Canteen. Show your progress to claim your drink!")
@@ -321,15 +319,15 @@ export default function CompletionPage() {
           >
             <Coffee className="mr-2 h-4 w-4" />
             Refreshment Hub
-          </Button>
+          </Button> */}
 
           <Button
             onClick={() => {
               // In a real app, this would share the achievement
               if (navigator.share) {
                 navigator.share({
-                  title: "I completed the IoT Treasure Hunt!",
-                  text: "I just collected all 5 IoT components in the campus treasure hunt and won amazing prizes!",
+                  title: "I completed the Diversity Treasure Hunt!",
+                  text: "I just collected all 5 components in the campus treasure hunt and won amazing prizes!",
                   url: window.location.origin,
                 })
               } else {

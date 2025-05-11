@@ -78,20 +78,20 @@ export default function ComponentsPage() {
   // Get the emoji for each component
   const getComponentEmoji = (id: string) => {
     switch (id) {
-      case "led":
-        return "💡" // Light bulb
-      case "resistor":
-        return "🧲" // Magnet (representing resistor)
-      case "breadboard":
-        return "🧩" // Puzzle piece (representing breadboard)
-      case "jumper-wires":
-        return "🔌" // Electric plug (representing jumper wires)
-      case "battery":
-        return "🔋" // Battery
+      case "hedy-lamarr":
+        return "🏛️"; // Hedy Lamarr
+      case "emilie-du-chatelet":
+        return "📚"; // Émilie du Châtelet
+      case "kimberly-bryant":
+        return "🔧"; // Kimberly Bryant
+      case "jess-wade":
+        return "🥗"; // Jess Wade
+      case "4as":
+        return "☕"; // The 4 A's
       default:
-        return "🔍" // Magnifying glass (default)
+        return "❓"; // Default
     }
-  }
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4">
@@ -235,26 +235,28 @@ export default function ComponentsPage() {
             <h3 className="text-md font-semibold text-white mb-3">Still Missing:</h3>
             <div className="grid grid-cols-5 gap-2">
               {["led", "resistor", "breadboard", "jumper-wires", "battery"].map((componentId) => {
-                const collected = collectedComponents.includes(componentId)
-                return (
-                  <div
-                    key={componentId}
-                    className={`p-2 rounded-lg ${collected ? "bg-white/10 border border-purple-400/30" : "bg-white/5 border border-white/10"} flex flex-col items-center`}
-                  >
-                    <div className="text-xl mb-1">{getComponentEmoji(componentId)}</div>
-                    <span className={`text-xs ${collected ? "text-purple-200" : "text-purple-200/50"}`}>
-                      {componentId === "led"
-                        ? "LED"
-                        : componentId === "resistor"
-                          ? "Resistor"
-                          : componentId === "breadboard"
-                            ? "Board"
-                            : componentId === "jumper-wires"
-                              ? "Wires"
-                              : "Battery"}
-                    </span>
-                  </div>
-                )
+          const collected = collectedComponents.includes(componentId)
+          return (
+            <div
+              key={componentId}
+              className={`p-2 rounded-lg ${collected ? "bg-white/10 border border-purple-400/30" : "bg-white/5 border border-white/10"} flex flex-col items-center`}
+            >
+              <div className="text-xl mb-1">{collected ? getComponentEmoji(componentId) : "❓"}</div>
+              <span className={`text-xs ${collected ? "text-purple-200" : "text-purple-200/50"}`}>
+                {collected
+            ? componentId === "hedy-lamarr"
+              ? "Hedy Lamarr"
+              : componentId === "emilie-du-chatelet"
+              ? "Emilie du Chatelet"
+              : componentId === "kimberly-bryant"
+              ? "Kimberly Bryant"
+              : componentId === "jess-wade"
+              ? "Jess Wade"
+              : "The 4 A's"
+            : "???"}
+              </span>
+            </div>
+          )
               })}
             </div>
           </motion.div>

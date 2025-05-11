@@ -49,10 +49,18 @@ export default function ScanPage({ params }: { params: { id: string } }) {
   const [deviceToken, setDeviceToken] = useState<string>("")
   const [showPrizeDetails, setShowPrizeDetails] = useState(false)
   const [redirectTimer, setRedirectTimer] = useState<number | null>(null)
+  const [qrId, setQrId] = useState<string | null>(null);
   const router = useRouter()
-  const qrId = params.id
+  
   const [showRefreshmentNotification, setShowRefreshmentNotification] = useState(false)
+  useEffect(() => {
+    async function unwrapParams() {
+      const resolvedParams = await params;
+      setQrId(resolvedParams.id);
+    }
 
+    unwrapParams();
+  }, [params]);
   // Generate or retrieve device fingerprint
   useEffect(() => {
     // Check if we already have a device fingerprint in localStorage
@@ -72,74 +80,67 @@ export default function ScanPage({ params }: { params: { id: string } }) {
 
   // Check if user is already registered via cookie
   useEffect(() => {
-    const checkRegistration = async () => {
-      try {
-        // Get stored device token if available
-        const storedToken = localStorage.getItem("device_token") || ""
-
-        // Try to scan the code to check if registration is required
-        const response = await fetch(`/api/scan?id=${qrId}${storedToken ? `&token=${storedToken}` : ""}`)
-        const data = await response.json()
-
-        if (response.status === 200) {
-          if (data.status === "registration_required" || data.status === "payment_required") {
-            // No registration or payment, redirect to home
-            router.push("/")
-            return
+      if (complete) return; // Stop further API calls if the hunt is complete
+    
+      const checkRegistration = async () => {
+        try {
+          const storedToken = localStorage.getItem("device_token") || "";
+          const response = await fetch(`/api/scan?id=${qrId}${storedToken ? `&token=${storedToken}` : ""}`);
+          const data = await response.json();
+    
+          if (response.status === 200) {
+            if (data.status === "registration_required" || data.status === "payment_required") {
+              router.push("/");
+              return;
+            }
+    
+            if (data.status === "success" || data.status === "already_scanned") {
+              setComponent(data.component);
+              setPointsToComponent(data.pointsToComponent);
+              setQrCode(data.qrCode);
+              setProgress(data.progress);
+              setCollectedComponents(data.collectedComponents);
+              setComplete(data.complete);
+    
+              if (data.justCollectedThird) {
+                setShowRefreshmentNotification(true);
+              }
+    
+              if (data.deviceToken) {
+                setDeviceToken(data.deviceToken);
+                localStorage.setItem("device_token", data.deviceToken);
+              }
+    
+              if (data.progress === 5) {
+                const timer = window.setTimeout(() => {
+                  router.push("/completion");
+                }, 20000); // 20 seconds
+                setRedirectTimer(timer);
+              } else if (data.complete) {
+                router.push("/completion");
+              } else {
+                setIsLoading(false);
+              }
+            }
+          } else {
+            setError("Failed to process QR code");
+            setIsLoading(false);
           }
-
-          // Set progress data
-          if (data.status === "success" || data.status === "already_scanned") {
-            setComponent(data.component)
-            setPointsToComponent(data.pointsToComponent)
-            setQrCode(data.qrCode)
-            setProgress(data.progress)
-            setCollectedComponents(data.collectedComponents)
-            setComplete(data.complete)
-
-            // Add this code to check if the user just collected their third component
-            if (data.justCollectedThird) {
-              setShowRefreshmentNotification(true)
-            }
-
-            // Store the new device token
-            if (data.deviceToken) {
-              setDeviceToken(data.deviceToken)
-              localStorage.setItem("device_token", data.deviceToken)
-            }
-
-            // If this is the 5th component (complete), set a timer to redirect to completion page
-            if (data.progress === 5) {
-              const timer = window.setTimeout(() => {
-                router.push("/completion")
-              }, 20000) // 20 seconds
-              setRedirectTimer(timer)
-            } else if (data.complete) {
-              router.push("/completion")
-            } else {
-              setIsLoading(false)
-            }
-          }
-        } else {
-          setError("Failed to process QR code")
-          setIsLoading(false)
+        } catch (err) {
+          console.error("Error checking registration:", err);
+          setError("Failed to connect to server");
+          setIsLoading(false);
         }
-      } catch (err) {
-        console.error("Error checking registration:", err)
-        setError("Failed to connect to server")
-        setIsLoading(false)
-      }
-    }
-
-    checkRegistration()
-
-    // Clean up timer on unmount
-    return () => {
-      if (redirectTimer) {
-        clearTimeout(redirectTimer)
-      }
-    }
-  }, [qrId, router, redirectTimer])
+      };
+    
+      checkRegistration();
+    
+      return () => {
+        if (redirectTimer) {
+          clearTimeout(redirectTimer);
+        }
+      };
+    }, [qrId, router, redirectTimer, complete]); // Add `complete` to dependencies
 
   const handleRegistration = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -459,16 +460,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           <div className="flex justify-center">
             <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center">
               <span className="text-2xl">
-                {component?.id === "led"
-                  ? "💡" // Light bulb
-                  : component?.id === "resistor"
-                    ? "🧲" // Magnet (representing resistor)
-                    : component?.id === "breadboard"
-                      ? "🧩" // Puzzle piece (representing breadboard)
-                      : component?.id === "jumper-wires"
-                        ? "🔌" // Electric plug (representing jumper wires)
-                        : "🔋"}{" "}
-                {/* Battery */}
+                {component?.id ? getComponentEmoji(component.id) : "❓"}
               </span>
             </div>
           </div>
@@ -655,3 +647,19 @@ export default function ScanPage({ params }: { params: { id: string } }) {
   )
 }
 
+const getComponentEmoji = (id: string) => {
+  switch (id) {
+    case "hedy-lamarr":
+      return "🏛️"; // Hedy Lamarr
+    case "emilie-du-chatelet":
+      return "📚"; // Émilie du Châtelet
+    case "kimberly-bryant":
+      return "🔧"; // Kimberly Bryant
+    case "jess-wade":
+      return "🥗"; // Jess Wade
+    case "4as":
+      return "☕"; // The 4 A's
+    default:
+      return "❓"; // Default
+  }
+};

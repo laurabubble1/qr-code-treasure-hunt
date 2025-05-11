@@ -37,111 +37,95 @@ export async function connectToDatabase() {
 // Define the fixed QR code IDs and their component mappings
 export const QR_CODE_MAPPINGS = {
   "550e8400-e29b-41d4-a716-446655440000": {
-    componentId: "led",
-    name: "LED",
-    description: "Light Emitting Diode - the basic building block of many electronic projects.",
+    componentId: "hedy-lamarr",
+    name: "Hedy Lamarr",
+    description: "Pioneer of wireless communication technologies.",
   },
   "6ba7b810-9dad-11d1-80b4-00c04fd430c8": {
-    componentId: "resistor",
-    name: "Resistor",
-    description: "Controls the flow of electrical current in a circuit.",
+    componentId: "emilie-du-chatelet",
+    name: "Émilie du Châtelet",
+    description: "Translated and explained Newton's laws of motion.",
   },
   "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d": {
-    componentId: "breadboard",
-    name: "Breadboard",
-    description: "A construction base for prototyping electronics without soldering.",
+    componentId: "kimberly-bryant",
+    name: "Kimberly Bryant",
+    description: "Founder of Black Girls CODE.",
   },
   "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed": {
-    componentId: "jumper-wires",
-    name: "Jumper Wires",
-    description: "Wires that connect components on the breadboard.",
+    componentId: "jess-wade",
+    name: "Jess Wade",
+    description: "Physicist and advocate for diversity in STEM.",
   },
   "f47ac10b-58cc-4372-a567-0e02b2c3d479": {
-    componentId: "battery",
-    name: "Battery",
-    description: "Provides power to your circuit.",
+    componentId: "4as",
+    name: "The 4 A's",
+    description: "Afua Bruce, Alan Turing, Alice Ball, and Asmaa Boujibar.",
   },
-}
+};
 
 // Updated clues and hints
 export const CLUES_AND_HINTS = [
   {
-    componentId: "led",
-    clue: "On the right side where fees are paid, a shining star is sleeping on the stairs, not up, not down, but in the middle heart.",
-    hint: "Look on the middle step for a bright sticker.",
+    componentId: "hedy-lamarr",
+    clue: "In a place where countless feet traverse the same path, where conversations echo and minds meet, a brilliant woman once cast her light not in the spotlight of Hollywood but in the shadows of science. Her groundbreaking invention laid the foundation for wireless communication, yet her name was largely forgotten by history. Today, we honor her quiet, but luminous legacy in a spot that lies halfway between the high and the low, where many people pause but few stop. She is there, in the middle, her contribution still glowing.",
+    hint: "Look on the middle step of the main staircase for a small tribute to Hedy Lamarr, the woman whose invention helped create Wi-Fi, Bluetooth, and GPS.",
     difficulty: "Easy",
   },
   {
-    componentId: "resistor",
-    clue: "Where everyone eats lunch, a tiny wall that fights the electric flow is dancing near the place where food plates are born, but not where you sit.",
-    hint: "Check near the food counter.",
+    componentId: "emilie-du-chatelet",
+    clue: "Among the stillness of books, where knowledge is stored and great minds are honored, there lies a hidden gem. A woman of the 18th century, who brought Newton’s laws to life in her own words, is quietly remembered. Her legacy of brilliance transcends centuries, yet her name is often overlooked in the history of physics. Like the quiet yet essential role she played in the development of classical mechanics, her tribute lies under a vast surface of thought and learning, where knowledge flourishes and secrets are kept.",
+    hint: "Look beneath the table in the study or reading area, the place where minds gather to dive into the past, uncover hidden knowledge, and continue the work she helped pioneer. Her legacy is tucked away just beneath the surface, waiting to be rediscovered.",
     difficulty: "Above Easy",
   },
   {
-    componentId: "breadboard",
-    clue: "Where many books stay quiet, a big square bed where circuits grow is hiding under the king of tables, where old books whisper secrets.",
-    hint: "Look under the biggest table in the old books area.",
+    componentId: "kimberly-bryant",
+    clue: "In a space where machines hum and ideas are brought to life, a pioneer in the world of technology worked tirelessly to ensure that every voice was heard. She didn’t just code — she built an entire community of young women of color, empowering them to take charge of their futures through technology. Her work helped create an opportunity for girls everywhere to learn the language of the future: code. In this space where wires twist together and machines come to life, her legacy pulses like a heartbeat. It’s hidden in plain sight, quietly waiting for someone to find it.",
+    hint: "Seek out the blinking light on a shared table, a small but constant sign of her work. Look behind or under it, where connections are made, just like the ones Kimberly Bryant has made for so many future tech leaders.",
     difficulty: "Hard",
   },
   {
-    componentId: "jumper-wires",
-    clue: "On the 1st floor where smart machines are made, thin snakes that tie machines together are sleeping behind a magic box where a tiny star blinks like a heartbeat.",
-    hint: "Find a box with a blinking light on a table.",
+    componentId: "jess-wade",
+    clue: "In a space where ideas and meals are shared, a powerful scientist who writes about the overlooked stands firm. This physicist has spent her career advocating for those whose stories are often erased, bringing attention to the amazing contributions of women and people of color in STEM. She shines brightest not where people sit to eat, but where everything begins — where meals are prepared, where new energy starts, and where the next generation of great minds begins to gather. Her quiet resistance to being ignored reflects the same energy that drives change.",
+    hint: "You’ll find her tribute near the food counter, not where people eat, but where the tools of nourishment are laid out. Her work is all about giving voice to those who deserve to be seen.",
     difficulty: "Super Hard",
   },
   {
-    componentId: "battery",
-    clue: "At the center of campus where grass grows under open sky, a box that feeds power to machines is hiding where the ground kisses the feet of the tallest green giant.",
-    hint: "Look at the bottom of the biggest tree.",
+    componentId: "4as",
+    clue: "In a place where conversations brew, ideas flow freely, and creativity is sparked by the aroma of fresh coffee, there lies a connection to four remarkable individuals whose work transcends borders and backgrounds. Afua Bruce, a trailblazing technologist, stands strong in advocating for public interest technology. Alan Turing, the brilliant mind who broke the Enigma code, helped lay the foundations for the computer age. Alice Ball, an African-American chemist, developed the first successful treatment for leprosy. And Asmaa Boujibar, a planetary scientist, has contributed to our understanding of space while advocating for diversity in science. These four powerhouses, whose work intersects with innovation and inclusion, are honored here. They all, in their own way, opened doors for others and made the world a better, more inclusive place.",
+    hint: "Look at the base of the tallest tree near the café, a symbol of growth, strength, and rooting for a better future. Beneath it, find subtle symbols of the four A’s, each standing for a different person but all working towards the same goal: an inclusive and forward-thinking future in STEM.",
     difficulty: "Difficult, Slightly Easier than Super Hard",
   },
-]
+];
 
 // Add this helper function to get IoT component data
 export async function getIoTComponents() {
-  const { db } = await connectToDatabase()
-  const components = await db.collection("components").find({}).toArray()
+  const { db } = await connectToDatabase();
+  const components = await db.collection("components").find({}).toArray();
 
-  // If no components exist, initialize them
   if (components.length === 0) {
     const defaultComponents = [
-      {
-        id: "led",
-        name: "LED",
-        description: "Light Emitting Diode - the basic building block of many electronic projects.",
-        image: "led.png",
-      },
-      {
-        id: "resistor",
-        name: "Resistor",
-        description: "Controls the flow of electrical current in a circuit.",
-        image: "resistor.png",
-      },
-      {
-        id: "breadboard",
-        name: "Breadboard",
-        description: "A construction base for prototyping electronics without soldering.",
-        image: "breadboard.png",
-      },
-      {
-        id: "jumper-wires",
-        name: "Jumper Wires",
-        description: "Wires that connect components on the breadboard.",
-        image: "jumper-wires.png",
-      },
-      {
-        id: "battery",
-        name: "Battery",
-        description: "Provides power to your circuit.",
-        image: "battery.png",
-      },
-    ]
+      { id: "hedy-lamarr", 
+        name: "Hedy Lamarr", 
+        description: "Pioneer of wireless communication technologies." },
+      { id: "emilie-du-chatelet",
+        name: "Émilie du Châtelet", 
+        description: "Translated and explained Newton's laws of motion." },
+      { id: "kimberly-bryant", 
+        name: "Kimberly Bryant", 
+        description: "Founder of Black Girls CODE." },
+      { id: "jess-wade", 
+        name: "Jess Wade", 
+        description: "Physicist and advocate for diversity in STEM." },
+      { id: "4as", 
+        name: "The 4 A's", 
+        description: "Afua Bruce, Alan Turing, Alice Ball, and Asmaa Boujibar." },
+    ];
 
-    await db.collection("components").insertMany(defaultComponents)
-    return defaultComponents
+    await db.collection("components").insertMany(defaultComponents);
+    return defaultComponents;
   }
 
-  return components
+  return components;
 }
 
 // Add function to get QR code data
@@ -189,9 +173,9 @@ export async function getQRCodes() {
 // Function to get component by QR code ID
 export async function getComponentByQRCodeId(qrId: string) {
   // First check if this is one of our fixed QR codes
-  if (QR_CODE_MAPPINGS[qrId]) {
+  if (QR_CODE_MAPPINGS[qrId as keyof typeof QR_CODE_MAPPINGS]) {
     const { db } = await connectToDatabase()
-    const component = await db.collection("components").findOne({ id: QR_CODE_MAPPINGS[qrId].componentId })
+    const component = await db.collection("components").findOne({ id: QR_CODE_MAPPINGS[qrId as keyof typeof QR_CODE_MAPPINGS].componentId })
 
     if (component) {
       return component
@@ -199,9 +183,9 @@ export async function getComponentByQRCodeId(qrId: string) {
 
     // If component not found in DB, return the mapping directly
     return {
-      id: QR_CODE_MAPPINGS[qrId].componentId,
-      name: QR_CODE_MAPPINGS[qrId].name,
-      description: QR_CODE_MAPPINGS[qrId].description,
+      id: QR_CODE_MAPPINGS[qrId as keyof typeof QR_CODE_MAPPINGS].componentId,
+      name: QR_CODE_MAPPINGS[qrId as keyof typeof QR_CODE_MAPPINGS].name,
+      description: QR_CODE_MAPPINGS[qrId as keyof typeof QR_CODE_MAPPINGS].description,
     }
   }
 

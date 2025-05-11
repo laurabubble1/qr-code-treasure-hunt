@@ -268,37 +268,31 @@ export default function DashboardPage() {
           >
             <h3 className="text-lg font-semibold text-white mb-3">Your Collection</h3>
             <div className="grid grid-cols-5 gap-2">
-              {["led", "resistor", "breadboard", "jumper-wires", "battery"].map((componentId) => {
-                const collected = collectedComponents.some((c) => c.id === componentId)
-                return (
-                  <div
-                    key={componentId}
-                    className={`p-2 rounded-lg ${collected ? "bg-white/10 border border-purple-400/30" : "bg-white/5 border border-white/10"} flex flex-col items-center`}
-                  >
-                    <div className="text-xl mb-1">
-                      {componentId === "led"
-                        ? "💡"
-                        : componentId === "resistor"
-                          ? "🔌"
-                          : componentId === "breadboard"
-                            ? "🧩"
-                            : componentId === "jumper-wires"
-                              ? "🔌"
-                              : "🔋"}
-                    </div>
-                    <span className={`text-xs ${collected ? "text-purple-200" : "text-purple-200/50"}`}>
-                      {componentId === "led"
-                        ? "LED"
-                        : componentId === "resistor"
-                          ? "Resistor"
-                          : componentId === "breadboard"
-                            ? "Board"
-                            : componentId === "jumper-wires"
-                              ? "Wires"
-                              : "Battery"}
-                    </span>
-                  </div>
-                )
+              {["hedy-lamarr", "emilie-du-chatelet", "kimberly-bryant", "jess-wade", "4as"].map((componentId) => {
+          const collected = collectedComponents.some((c) => c.id === componentId)
+          return (
+            <div
+              key={componentId}
+              className={`p-2 rounded-lg ${collected ? "bg-white/10 border border-purple-400/30" : "bg-white/5 border border-white/10"} flex flex-col items-center`}
+            >
+              <div className="text-xl mb-1">
+                {collected ? getComponentEmoji(componentId) : "❓"}
+              </div>
+                <span className={`text-xs ${collected ? "text-purple-200" : "text-purple-200/50"}`}>
+                {collected
+                  ? componentId === "hedy-lamarr"
+                  ? "Hedy Lamarr"
+                  : componentId === "emilie-du-chatelet"
+                  ? "Émilie du Châtelet"
+                  : componentId === "kimberly-bryant"
+                  ? "Kimberly Bryant"
+                  : componentId === "jess-wade"
+                  ? "Jess Wade"
+                  : "The 4 A's"
+                  : "???"}
+                </span>
+            </div>
+          )
               })}
             </div>
           </motion.div>
@@ -378,4 +372,21 @@ export default function DashboardPage() {
     </main>
   )
 }
+
+const getComponentEmoji = (id: string) => {
+  switch (id) {
+    case "hedy-lamarr":
+      return "🏛️"; // Hedy Lamarr
+    case "emilie-du-chatelet":
+      return "📚"; // Émilie du Châtelet
+    case "kimberly-bryant":
+      return "🔧"; // Kimberly Bryant
+    case "jess-wade":
+      return "🥗"; // Jess Wade
+    case "4as":
+      return "☕"; // The 4 A's
+    default:
+      return "❓"; // Default
+  }
+};
 
