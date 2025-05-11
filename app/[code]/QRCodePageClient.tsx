@@ -171,7 +171,7 @@ export default function QRCodePageClient({ code }: {  code: string }) {
           transition={{ delay: 0.7, duration: 0.5 }}
           className="text-purple-200 mb-8"
         >
-          Enter your registration number to begin
+          Enter your username to begin
         </motion.p>
 
         {error && (
@@ -198,7 +198,7 @@ export default function QRCodePageClient({ code }: {  code: string }) {
             <Input
               id="registration"
               type="text"
-              placeholder="Enter your registration number"
+              placeholder="Enter username"
               value={registrationNumber}
               onChange={(e) => setRegistrationNumber(e.target.value)}
               className="bg-white/5 border-white/10 text-white placeholder:text-purple-200/50"

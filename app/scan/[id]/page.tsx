@@ -258,7 +258,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
             transition={{ delay: 0.7, duration: 0.5 }}
             className="text-purple-200 mb-4"
           >
-            Enter your registration number to begin
+            Enter your username to begin
           </motion.p>
 
           {component && (
@@ -352,7 +352,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           >
             <div className="space-y-2">
               <label htmlFor="registration" className="text-sm text-purple-100 text-left block">
-                Registration Number
+                Username
               </label>
               <Input
                 id="registration"

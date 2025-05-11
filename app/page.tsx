@@ -389,12 +389,12 @@ export default function Home() {
             <div className="mt-6 pt-4 border-t border-white/10">
               <div className="space-y-2">
                 <Label htmlFor="registration-id" className="text-sm text-left block">
-                  Registration ID
+                  Username
                 </Label>
                 <Input
                   id="registration-id"
                   type="text"
-                  placeholder="Enter your registration ID"
+                  placeholder="Enter a Username"
                   value={registrationId}
                   onChange={handleRegistrationIdChange}
                   onBlur={validateRegistration}
