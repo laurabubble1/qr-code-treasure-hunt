@@ -563,7 +563,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
             transition={{ delay: 0.7, duration: 0.5 }}
             className="mb-6 p-5 rounded-lg bg-white/5 border border-white/10"
           >
-            <h3 className="text-lg font-semibold text-white mb-2">Next Clue</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Clue Found</h3>
             <p className="text-sm text-purple-100 italic mb-4">{qrCode.clue}</p>
 
             {showHint && (
