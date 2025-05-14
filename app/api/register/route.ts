@@ -44,7 +44,7 @@ export async function POST(request: Request) {
 
     if (existingUser) {
       // If user exists, set cookie and return success
-      cookies().set("user_id", existingUser._id.toString(), {
+      (await cookies()).set("user_id", existingUser._id.toString(), {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 60 * 60 * 24 * 7, // 1 week

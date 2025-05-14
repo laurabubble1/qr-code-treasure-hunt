@@ -103,7 +103,7 @@ export default function Home() {
 
     // Check if the 7th and 8th characters are '4' and '9'
     if (normalizedId.charAt(6) !== "4" || normalizedId.charAt(7) !== "9") {
-      setRegistrationError("Invalid Registration ID. The 7th and 8th digits must be 4 and 9 for IoT branch students.")
+      setRegistrationError("Invalid Registration ID")
       return
     }
 
